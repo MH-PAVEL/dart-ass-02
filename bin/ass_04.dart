@@ -34,7 +34,7 @@ class CurrentAccount extends Account {
 
   @override
   void withdraw(double amount) {
-    if (balance - amount >= -overdraftLimit) {
+    if (balance >= amount && overdraftLimit >= amount) {
       balance -= amount;
       print("Current Account ($accountNumber) Balance: $balance");
     } else {
